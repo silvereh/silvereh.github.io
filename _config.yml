@@ -1,0 +1,20 @@
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Silvere Heraudeau"
+      comments: true
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      author: "Silvere Heraudeau"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+permalink: /:collection/:title

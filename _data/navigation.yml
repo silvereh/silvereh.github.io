@@ -1,0 +1,6 @@
+- name: About me
+  link: /
+- name: Contact me
+  link: /contact/
+- name: Articles
+  link: /articles/
