@@ -3,6 +3,11 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+assets
+_includes/css
 
 # Mac
 .DS_Store
+
+# Gulp
+node_modules

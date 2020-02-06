@@ -1,3 +1,37 @@
+# Basic info
+title: Silvere Heraudeau
+email: silvere.heraudeau@gmail.com
+description: My personal website
+
+# Base URL is used in the manner that is specified by this guide
+# (http://jekyllrb.com/docs/github-pages/) which is to say, it's
+# not used at all.
+baseurl: ""
+url: "https://silvereh.github.io"
+
+# Languages and syntax highlighting
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax-highlighter: rouge
+
+# Include static pages
+include: ["_content"]
+
+exclude: [
+  "_assets",
+  "Gemfile",
+  "Gemfile.lock",
+  "gulpfile.js",
+  "node_modules",
+  "package.json"
+]
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
 defaults:
   - scope:
       path: ""
@@ -12,9 +46,5 @@ defaults:
       layout: "default"
       author: "Silvere Heraudeau"
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
 permalink: /:collection/:title
+
