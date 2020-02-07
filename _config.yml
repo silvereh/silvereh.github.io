@@ -43,5 +43,5 @@ defaults:
       layout: "default"
       author: "Silvere Heraudeau"
 
-permalink: /:collection/:title
+# permalink: /:collection/:title
 

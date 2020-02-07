@@ -21,7 +21,7 @@ module.exports = {
    * @param destinations
    *   An array of destinations where the resulting CSS file should be placed.
    */
-  buildStyles: function buildStyles(scssRoot, destinations) {
+  buildStyles: (scssRoot, destinations) => {
     let stream = gulp
       .src(paths.sassFiles + scssRoot)
       .pipe(sass({
@@ -65,14 +65,14 @@ module.exports = {
    * @param items
    *   An array of items to be deleted.
    */
-  clean: function clean(items) {
+  clean: (items) => {
     return del(items);
   },
 
   /**
    * Reloads browsersync session.
    */
-  reload: function reload(callback) {
+  reload: (callback) => {
     browserSync.reload();
     callback();
   },
@@ -88,4 +88,18 @@ module.exports = {
       .pipe(run(command))
       .on('error', gutil.log);
   },
+
+  cleanUnused: (destination) => {
+    return gulp
+      .src(destination)
+      .pipe(postcss([
+        uncss({
+          html: [paths.siteHtmlFilesGlob],
+          ignore: ['.ignore-me', '.hidden']
+        }),
+      ]))
+      .pipe(gulp.dest(destination))
+      .pipe(browserSync.stream())
+      .on('error', gutil.log);
+  }
 };

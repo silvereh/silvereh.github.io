@@ -8,3 +8,8 @@ Install dependencies:
 
 `npm install --save-dev gulp gulp-accessibility gulp-cache gulp-util gulp-notify gulp-run gulp-concat gulp-uglify gulp-sass gulp-sourcemaps gulp-postcss postcss-uncss uncss autoprefixer cssnano del browser-sync gulp-hub`
 
+To run:
+
+`bundle update`
+`bundle install`
+`npm install`

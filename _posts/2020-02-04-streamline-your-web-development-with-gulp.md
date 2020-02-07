@@ -1,4 +1,5 @@
 ---
+title: Streamline Your Web Development With Gulp
 categories: [workflow, development]
 tags: [gulp]
 ---
@@ -373,8 +374,8 @@ To be able to work, useref reads specific html comments to know what files it ne
 
 ```html
   <!-- build:[type] [destination file] -->
-  <link|script>   // first file to concatenate
-  <link|script>   // second file to concatenate
+  <link|script>   <!-- first file to concatenate -->
+  <link|script>   <!-- second file to concatenate -->
   <!-- endbuild -->
 ```
 

@@ -1,10 +1,10 @@
 <header>
-	<nav>
+	<nav class="container">
 		<ul class="list-inline">
 			{% for item in site.data.navigation %}
 				{% if page.url != item.link %}
 					<li>
-						<a href="{{ item.link }}">{{ item.name }}</a>
+						<a class="navlink" href="{{ item.link }}">{{ item.name }}</a>
 					</li>
 				{% else %}
 					<li class="current">{{ item.name }}</li>
