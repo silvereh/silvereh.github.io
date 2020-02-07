@@ -10,11 +10,8 @@ baseurl: ""
 url: "https://silvereh.github.io"
 
 # Languages and syntax highlighting
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
-  syntax-highlighter: rouge
+markdown: GFM
+highlighter: rouge
 
 # Include static pages
 include: ["_content"]

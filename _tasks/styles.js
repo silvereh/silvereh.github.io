@@ -13,7 +13,7 @@ const gulp = require('gulp'),
 const mainStyleDests = [
   paths.jekyllCssFiles,
   paths.siteCssFiles,
-  paths.siteStyleGuide
+  // paths.siteStyleGuide
 ];
 
 const buildStylesMain = () => {
@@ -34,17 +34,21 @@ const buildStylesOther = () => {
   return gulp
   	.src([paths.sassFiles + '/*.css'])
     .pipe(postcss([
-      uncss({
-        html: paths.siteHtmlFilesGlob,
-        ignore: ['.ignore-me', '.hidden']
-      }),
       autoprefixer({
         overrideBrowserslist: ['last 2 versions']
       }),
       cssnano()
-  	]))
+    ]))
     .pipe(gulp.dest(paths.jekyllCssFiles))
     .pipe(gulp.dest(paths.siteCssFiles))
+    // .pipe(postcss([
+    //   uncss({
+    //     html: paths.siteHtmlFilesGlob,
+    //     ignore: ['.ignore-me', '.hidden']
+    //   }),
+    // ]))
+    // .pipe(gulp.dest(paths.jekyllCssFiles))
+    // .pipe(gulp.dest(paths.siteCssFiles))
     .on('error', gutil.log);
 };
 gulp.task('build:styles:css', gulp.parallel(buildStylesOther));

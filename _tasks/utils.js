@@ -22,31 +22,41 @@ module.exports = {
    *   An array of destinations where the resulting CSS file should be placed.
    */
   buildStyles: function buildStyles(scssRoot, destinations) {
-    let stream = sass(paths.sassFiles + scssRoot, {
-      style: 'compressed',
-      trace: true,
-      loadPath: [paths.sassFiles]
-    });
-    stream.pipe(postcss([
-      uncss({
-        html: paths.siteHtmlFilesGlob,
-        ignore: ['.ignore-me', '.hidden']
-      }),
-      autoprefixer({
-        overrideBrowserslist: ['last 2 versions']
-      }),
-      cssnano()
-    ]));
+    let stream = gulp
+      .src(paths.sassFiles + scssRoot)
+      .pipe(sass({
+        style: 'compressed',
+        trace: true,
+        loadPath: [paths.sassFiles]
+      }))
+      .pipe(postcss([
+        autoprefixer({
+          overrideBrowserslist: ['last 2 versions']
+        }),
+        cssnano()
+      ]));
 
     // Pipe file to all destinations.
     for (let i = 0; i < destinations.length; i++) {
       stream = stream.pipe(gulp.dest(destinations[i]));
     }
 
-    stream.pipe(browserSync.stream())
-      .on('error', gutil.log);
+    // stream
+    //   .pipe(postcss([
+    //     uncss({
+    //       html: [paths.jekyllHtmlFilesGlob, paths.siteHtmlFilesGlob],
+    //       ignore: ['.ignore-me', '.hidden']
+    //     }),
+    //   ]));
 
-    return stream;
+    // // Pipe file to all destinations.
+    // for (let i = 0; i < destinations.length; i++) {
+    //   stream = stream.pipe(gulp.dest(destinations[i]));
+    // }
+
+    return stream
+      .pipe(browserSync.stream())
+      .on('error', gutil.log);
   },
 
   /**
