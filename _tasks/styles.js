@@ -13,28 +13,27 @@ const gulp = require('gulp'),
 const mainStyleDests = [
   paths.jekyllCssFiles,
   paths.siteCssFiles,
-  // paths.siteStyleGuide
 ];
-const criticalStyleDests = ['_includes/css'];
+const criticalStyleDests = ['_includes'];
 
-const cleanUnused = () => {
-  return utils.cleanUnused(paths.siteCssFiles);
+const cleanUnusedCss = () => {
+  return utils.cleanUnusedCss(paths.siteCssFiles);
 }
 
-const cleanUnusedCritical = () => {
-  return utils.cleanUnused(criticalStyleDests);
+const cleanUnusedCriticalCss = () => {
+  return utils.cleanUnusedCss(criticalStyleDests);
 }
 
 const buildStylesMain = () => {
   return utils.buildStyles('/main.scss', mainStyleDests);
 };
-gulp.task('build:styles:main', gulp.series(buildStylesMain, cleanUnused));
+gulp.task('build:styles:main', gulp.series(buildStylesMain, cleanUnusedCss));
 
 // Processes critical CSS, to be included in head.html.
 const buildStylesCritical = () => {
   return utils.buildStyles('/critical*.scss', criticalStyleDests);
 };
-gulp.task('build:styles:critical', gulp.series(buildStylesCritical, cleanUnusedCritical));
+gulp.task('build:styles:critical', gulp.series(buildStylesCritical, cleanUnusedCriticalCss, utils.reload));
 
 // Copies any other CSS files to the assets directory, to be used by pages/posts
 // that specify custom CSS files.
@@ -51,7 +50,7 @@ const buildStylesOther = () => {
     .pipe(gulp.dest(paths.siteCssFiles))
     .on('error', gutil.log);
 };
-gulp.task('build:styles:css', gulp.series(buildStylesOther, cleanUnused));
+gulp.task('build:styles:css', gulp.series(buildStylesOther, cleanUnusedCss));
 
 // Builds all site styles.
 gulp.task('build:styles', gulp.series(
@@ -60,8 +59,10 @@ gulp.task('build:styles', gulp.series(
     buildStylesCritical,
     buildStylesOther
   ),
-  gulp.parallel(
-    cleanUnused,
-    cleanUnusedCritical
-  )
+  utils.reload
+));
+
+gulp.task('clean:styles:unused', gulp.parallel(
+  cleanUnusedCss,
+  cleanUnusedCriticalCss
 ));

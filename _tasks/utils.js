@@ -21,14 +21,16 @@ module.exports = {
    * @param destinations
    *   An array of destinations where the resulting CSS file should be placed.
    */
-  buildStyles: (scssRoot, destinations) => {
+  buildStyles: (scssRoot, destinations, forceReload = false) => {
     let stream = gulp
       .src(paths.sassFiles + scssRoot)
+      .pipe(sourcemaps.init())
       .pipe(sass({
         style: 'compressed',
         trace: true,
         loadPath: [paths.sassFiles]
       }))
+      .pipe(sourcemaps.write())
       .pipe(postcss([
         autoprefixer({
           overrideBrowserslist: ['last 2 versions']
@@ -40,19 +42,6 @@ module.exports = {
     for (let i = 0; i < destinations.length; i++) {
       stream = stream.pipe(gulp.dest(destinations[i]));
     }
-
-    // stream
-    //   .pipe(postcss([
-    //     uncss({
-    //       html: [paths.jekyllHtmlFilesGlob, paths.siteHtmlFilesGlob],
-    //       ignore: ['.ignore-me', '.hidden']
-    //     }),
-    //   ]));
-
-    // // Pipe file to all destinations.
-    // for (let i = 0; i < destinations.length; i++) {
-    //   stream = stream.pipe(gulp.dest(destinations[i]));
-    // }
 
     return stream
       .pipe(browserSync.stream())
@@ -72,7 +61,7 @@ module.exports = {
   /**
    * Reloads browsersync session.
    */
-  reload: (callback) => {
+  reload: (callback = null) => {
     browserSync.reload();
     callback();
   },
@@ -89,7 +78,13 @@ module.exports = {
       .on('error', gutil.log);
   },
 
-  cleanUnused: (destination) => {
+  /**
+   * Removed unused css from produced CSS files.
+   *
+   * @param destination
+   *   The folder where the css files are located.
+   */
+  cleanUnusedCss: (destination) => {
     return gulp
       .src(destination)
       .pipe(postcss([

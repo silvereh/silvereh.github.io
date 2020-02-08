@@ -15,21 +15,9 @@ gulp.registry(hub);
  */
 gulp.task('build', gulp.series(
   'clean',
-  gulp.parallel('build:scripts', /*'build:images',*/ 'build:styles'/*, 'build:fonts'*/),
-  // 'styleguide',
-  'build:jekyll'
-));
-
-/**
- * Task: build:test
- *
- * Builds the site anew using test config.
- */
-gulp.task('build:test', gulp.series(
-  'clean',
-  gulp.parallel('build:scripts', /*'build:images',*/ 'build:styles'/*, 'build:fonts'*/),
-  // 'styleguide',
-  'build:jekyll:test'
+  gulp.parallel('build:scripts', 'build:styles'),
+  'build:jekyll',
+  'clean:styles:unused'
 ));
 
 /**
@@ -39,9 +27,9 @@ gulp.task('build:test', gulp.series(
  */
 gulp.task('build:local', gulp.series(
   'clean',
-  gulp.parallel('build:scripts', /*'build:images',*/ 'build:styles'/*, 'build:fonts'*/),
-  // 'styleguide',
-  'build:jekyll:local'
+  gulp.parallel('build:scripts', 'build:styles'),
+  'build:jekyll:local',
+  'clean:styles:unused'
 ));
 
 /**
@@ -57,7 +45,7 @@ gulp.task('default', gulp.parallel('build'));
  * Special task for building scripts then reloading via BrowserSync.
  */
 gulp.task('build:scripts:watch', gulp.series(
-  'build:scripts:dev',
+  'build:scripts',
   'build:jekyll:local',
   utils.reload
 ));
@@ -90,29 +78,16 @@ const serve = () => {
   // Watch .scss files; changes are piped to browserSync.
   // Ignore style guide SCSS.
   // Rebuild the style guide to catch updates to component markup.
-  // gulp.watch(
-  //   ['_assets/styles/**/*.scss', '!_assets/styles/scss/07-styleguide/**/*', '!_assets/styles/styleguide.scss'],
-  //   gulp.parallel('build:styles', 'build:styleguide')
-  // );
   gulp.watch(
-    [paths.sassFilesGlob],
+    ['_assets/styles/**/*.scss'],
     gulp.parallel('build:styles')
   );
 
   // Watch .js files.
   gulp.watch(
-    [paths.jsFilesGlob],
+    ['_assets/js/**/*.js'],
     gulp.parallel('build:scripts:watch')
   );
-
-  // // Watch comment app files.
-  // gulp.watch('_comments-app/**/*', gulp.parallel('build:scripts:watch'));
-
-  // // Watch image files; changes are piped to browserSync.
-  // gulp.watch('_assets/img/**/*', gulp.parallel('build:images'));
-
-  // // Watch posts.
-  // gulp.watch('_posts/**/*.+(md|markdown|MD)', gulp.parallel('build:jekyll:watch'));
 
   // Watch HTML and markdown files.
   gulp.watch(
@@ -120,20 +95,8 @@ const serve = () => {
     gulp.parallel('build:jekyll:watch')
   );
 
-  // Watch RSS feed XML files.
-  // gulp.watch('**.xml', gulp.parallel('build:jekyll:watch'));
-
   // Watch data files.
   gulp.watch('_data/**.*+(yml|yaml|csv|json)', gulp.parallel('build:jekyll:watch'));
-
-  // Watch favicon.png.
-  // gulp.watch('favicon.png', gulp.parallel('build:jekyll:watch'));
-
-  // Watch style guide SCSS.
-  // gulp.watch(['_assets/styles/styleguide.scss', '_assets/styles/scss/07-styleguide/**/*.scss'], gulp.parallel('build:styles:styleguide'));
-
-  // Watch style guide HTML.
-  // gulp.watch(['_styleguide_assets/*.html', '_assets/styles/*.md'], gulp.parallel('build:styleguide', 'build:jekyll:watch'));
 };
 
 /**

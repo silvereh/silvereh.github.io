@@ -10,8 +10,11 @@ baseurl: ""
 url: "https://silvereh.github.io"
 
 # Languages and syntax highlighting
-markdown: GFM
-highlighter: rouge
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Include static pages
 include: ["_content"]
@@ -43,5 +46,5 @@ defaults:
       layout: "default"
       author: "Silvere Heraudeau"
 
-# permalink: /:collection/:title
+permalink: /:collection/:title:output_ext
 
