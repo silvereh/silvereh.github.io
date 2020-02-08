@@ -74,8 +74,8 @@
 
 <p>The first step is of course to install Gulp via npm in the command line. If you don’t have node and npm installed on your machine, you can download them <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" title="NPM documentation on installing npm">here</a>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g gulp
-</code></pre></div></div>
+<pre><code class="language-txt">  npm install -g gulp
+</code></pre>
 
 <p>For Mac users, don’t forget to run it with sudo as a regular user will not have permission to install something globally. Alternatively, you can install it only on the current user session by omitting the <code class="language-plaintext highlighter-rouge">-g</code> parameter.</p>
 
@@ -85,8 +85,8 @@
 
 <p>Note: from this point and forward, it is not necessary anymore for Mac users to run in sudo mode since all the steps are now only relevant for the defined project.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init
-</code></pre></div></div>
+<pre><code class="language-txt">  npm init
+</code></pre>
 
 <p>During the initialization process, npm will ask you a lot of questions meant to establish the package.json file. You can always edit those options later by updating the package.json file.</p>
 
@@ -114,8 +114,8 @@
 
 <p>Once our project correctly initialized, we can install gulp into it, which will allow us to have gulp automate the most tedious development tasks. In this step, we will install gulp, along with all the other dependencies we will need for our project:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install --save-dev gulp gulp-sass gulp-sourcemaps browser-sync gulp-useref gulp-postcss uncss postcss-uncss css-nano gulp-uglify del
-</code></pre></div></div>
+<pre><code class="language-txt">  npm install --save-dev gulp gulp-sass gulp-sourcemaps browser-sync gulp-useref gulp-postcss uncss postcss-uncss css-nano gulp-uglify del
+</code></pre>
 
 <p>Note: If you develop your project with less instead of sass, you will want tu install <a href="https://www.npmjs.com/package/gulp-less" title="NPM official gulp-less package information"><code class="language-plaintext highlighter-rouge">gulp-less</code></a> instead of <a href="https://www.npmjs.com/package/gulp-sass" title="NPM official gulp-sass package information"><code class="language-plaintext highlighter-rouge">gulp-sass</code></a>. If that’s your case, simply replace the calls appropriately in your project as you follow along this tutorial.</p>
 
@@ -127,17 +127,17 @@
 
 <p>For this project, I used the following structure, which is a very standard way of structuring a web application.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|- dist/
-|- gulpfile.js
-|- node_modules/
-|- package.json
-|- src/
-    |- assets/
-    |- css/
-    |- index.html
-    |- js/
+<pre><code class="language-txt">  |- dist/
+  |- gulpfile.js
+  |- node_modules/
+  |- package.json
+  |- src/
+      |- assets/
+      |- css/
+      |- index.html
+      |- js/
     |- scss/
-</code></pre></div></div>
+</code></pre>
 
 <p>In our project, we will use the dist folder (shorthand for distribution) to host production optimized files, while the src (shorthand for source) folder will contain our development code. You probably noticed the gulpfile.js in our tree, this is the file that will contain all of Gulp’s configurations. It needs to be called that way to work.</p>
 
@@ -147,7 +147,8 @@
 
 <p>Note: I use the <a href="https://www.w3schools.com/js/js_es6.asp" title="w3schools article on ECMAScript 6">ECMAScript 6 notation</a> in this tutorial as it gives more structure and is more restricted, but standard JavaScript notation will work just the same.</p>
 
-<p>let gulp = require(‘gulp’);</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">gulp</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>This statement tells node to look for the gulp package in node_modules, and import it into the project so it can be used. This also assign the content of the package to a variable called gulp.</p>
 
@@ -215,13 +216,13 @@
 
 <p>Note: If you use a more generic glob like <code class="language-plaintext highlighter-rouge">'src/**/*.scss</code>, gulp will generate the appropriate files, but will nest them further into your css folder, ending with a result like that:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|- src
-    |- scss
-        |- main.scss
-    |- css
-        |- scss
-            |- main.css
-</code></pre></div></div>
+<pre><code class="language-txt">  |- src
+      |- scss
+          |- main.scss
+      |- css
+          |- scss
+              |- main.css
+</code></pre>
 
 <p>Before going any further, let’s save our desired paths into a constant, so we don’t have to type them over and over as we progress.</p>
 

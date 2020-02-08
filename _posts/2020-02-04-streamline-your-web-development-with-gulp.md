@@ -20,7 +20,9 @@ In the past, I worked on a project built with Grunt and at first, I thought abou
 
 The first step is of course to install Gulp via npm in the command line. If you don't have node and npm installed on your machine, you can download them [here][4].
 
-    npm install -g gulp
+```txt
+  npm install -g gulp
+```
 
 For Mac users, don’t forget to run it with sudo as a regular user will not have permission to install something globally. Alternatively, you can install it only on the current user session by omitting the `-g` parameter.
 
@@ -32,7 +34,9 @@ Once Gulp is installed, we are ready to get started. We can now create a project
 
 Note: from this point and forward, it is not necessary anymore for Mac users to run in sudo mode since all the steps are now only relevant for the defined project.
 
-    npm init
+```txt
+  npm init
+```
 
 During the initialization process, npm will ask you a lot of questions meant to establish the package.json file. You can always edit those options later by updating the package.json file.
 
@@ -61,7 +65,9 @@ The package.json file will look something like this:
 
 Once our project correctly initialized, we can install gulp into it, which will allow us to have gulp automate the most tedious development tasks. In this step, we will install gulp, along with all the other dependencies we will need for our project:
 
-    npm install --save-dev gulp gulp-sass gulp-sourcemaps browser-sync gulp-useref gulp-postcss uncss postcss-uncss css-nano gulp-uglify del
+```txt
+  npm install --save-dev gulp gulp-sass gulp-sourcemaps browser-sync gulp-useref gulp-postcss uncss postcss-uncss css-nano gulp-uglify del
+```
 
 Note: If you develop your project with less instead of sass, you will want tu install [`gulp-less`][5] instead of [`gulp-sass`][6]. If that's your case, simply replace the calls appropriately in your project as you follow along this tutorial.
 
@@ -77,16 +83,18 @@ Gulp is very flexible and will adapt to any project structure, that doesn't mean
 
 For this project, I used the following structure, which is a very standard way of structuring a web application.
 
-    |- dist/
-    |- gulpfile.js
-    |- node_modules/
-    |- package.json
-    |- src/
-        |- assets/
-        |- css/
-        |- index.html
-        |- js/
-        |- scss/
+```txt
+  |- dist/
+  |- gulpfile.js
+  |- node_modules/
+  |- package.json
+  |- src/
+      |- assets/
+      |- css/
+      |- index.html
+      |- js/
+    |- scss/
+```
 
 In our project, we will use the dist folder (shorthand for distribution) to host production optimized files, while the src (shorthand for source) folder will contain our development code. You probably noticed the gulpfile.js in our tree, this is the file that will contain all of Gulp's configurations. It needs to be called that way to work.
 
@@ -96,7 +104,9 @@ To be able to use Gulp, we need to require it in the gulpfile.js, otherwise, the
 
 Note: I use the [ECMAScript 6 notation][7] in this tutorial as it gives more structure and is more restricted, but standard JavaScript notation will work just the same.
 
+```javascript
   let gulp = require('gulp');
+```
 
 This statement tells node to look for the gulp package in node_modules, and import it into the project so it can be used. This also assign the content of the package to a variable called gulp.
 
@@ -110,7 +120,7 @@ There are 2 ways to write a gulp task:
       .pipe(gulp.dest('path/to/destination'));  // ... and save them in the destination folder.
   });
 ```
-2. 
+2.  
 ```javascript
   let taskName = () => {
     return gulp.src('path/to/src')              // get source files ...
@@ -164,12 +174,14 @@ With this new knowledge, we can replace `'src/scss/main.scss'` with `'src/scss/*
 
 Note: If you use a more generic glob like `'src/**/*.scss`, gulp will generate the appropriate files, but will nest them further into your css folder, ending with a result like that:
 
-    |- src
-        |- scss
-            |- main.scss
-        |- css
-            |- scss
-                |- main.css
+```txt
+  |- src
+      |- scss
+          |- main.scss
+      |- css
+          |- scss
+              |- main.css
+```
 
 Before going any further, let's save our desired paths into a constant, so we don't have to type them over and over as we progress.
 
