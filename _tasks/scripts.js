@@ -9,6 +9,8 @@ const uglify = require('gulp-uglify');
 
 // Concatenates and uglifies global JS files and outputs result to the
 // appropriate location.
+// const jsDest = [paths.jekyllJsFiles];
+const jsDest = [paths.includesBottom];
 const buildScriptsGlobal = () => {
   return gulp
     .src([
@@ -19,7 +21,7 @@ const buildScriptsGlobal = () => {
     .pipe(uglify())
 
     // Only place in `assets` because Jekyll needs to process the file.
-    .pipe(gulp.dest(paths.jekyllJsFiles))
+    .pipe(gulp.dest(jsDest))
     .on('error', gutil.log);
 };
 gulp.task('build:scripts', gulp.parallel(buildScriptsGlobal));

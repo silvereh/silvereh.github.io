@@ -33,16 +33,16 @@ paths.fontFiles   = paths.assetsDir + paths.fontFolderName;
 // Jekyll files locations.
 paths.jekyllPostFiles  = paths.jekyllDir       + paths.postFolderName;
 paths.jekyllDraftFiles = paths.jekyllDir       + paths.draftFolderName;
-paths.jekyllCssFiles   = paths.jekyllAssetsDir;// + paths.stylesFolderName;
-paths.jekyllJsFiles    = paths.jekyllAssetsDir;// + paths.scriptFolderName;
-paths.jekyllImageFiles = paths.jekyllAssetsDir;// + paths.imageFolderName;
-paths.jekyllFontFiles  = paths.jekyllAssetsDir;// + paths.fontFolderName;
+paths.jekyllCssFiles   = paths.jekyllAssetsDir + paths.stylesFolderName;
+paths.jekyllJsFiles    = paths.jekyllAssetsDir + paths.scriptFolderName;
+paths.jekyllImageFiles = paths.jekyllAssetsDir + paths.imageFolderName;
+paths.jekyllFontFiles  = paths.jekyllAssetsDir + paths.fontFolderName;
 
 // Site files locations.
-paths.siteCssFiles   = paths.siteAssetsDir;// + paths.stylesFolderName;
-paths.siteJsFiles    = paths.siteAssetsDir;// + paths.scriptFolderName;
-paths.siteImageFiles = paths.siteAssetsDir;// + paths.imageFolderName;
-paths.siteFontFiles  = paths.siteAssetsDir;// + paths.fontFolderName;
+paths.siteCssFiles   = paths.siteAssetsDir + paths.stylesFolderName;
+paths.siteJsFiles    = paths.siteAssetsDir + paths.scriptFolderName;
+paths.siteImageFiles = paths.siteAssetsDir + paths.imageFolderName;
+paths.siteFontFiles  = paths.siteAssetsDir + paths.fontFolderName;
 // paths.siteStyleGuide = paths.siteDir       + paths.styleGuideDir;
 
 // Glob patterns by file type.
@@ -86,5 +86,8 @@ paths.htmlTestFiles = [
   // '!_site/blog/tag/efficiency/index.html',
   // '!_site/blog/tag/tridug/index.html'
 ];
+
+paths.includesHead = '_includes/head';
+paths.includesBottom = '_includes/bottom';
 
 module.exports = paths;

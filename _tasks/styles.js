@@ -10,14 +10,15 @@ const gulp = require('gulp'),
       gutil = require('gulp-util'),
   		cssnano = require('cssnano');
 
-const mainStyleDests = [
-  paths.jekyllCssFiles,
-  paths.siteCssFiles,
-];
-const criticalStyleDests = ['_includes'];
+// const mainStyleDests = [
+//   paths.jekyllCssFiles,
+//   paths.siteCssFiles,
+// ];
+const mainStyleDests = [paths.includesHead];
+const criticalStyleDests = [paths.includesHead];
 
 const cleanUnusedCss = () => {
-  return utils.cleanUnusedCss(paths.siteCssFiles);
+  return utils.cleanUnusedCss(mainStyleDests);
 }
 
 const cleanUnusedCriticalCss = () => {
@@ -46,8 +47,8 @@ const buildStylesOther = () => {
       }),
       cssnano()
     ]))
-    .pipe(gulp.dest(paths.jekyllCssFiles))
-    .pipe(gulp.dest(paths.siteCssFiles))
+    // .pipe(gulp.dest(paths.jekyllCssFiles))
+    .pipe(gulp.dest(mainStyleDests))
     .on('error', gutil.log);
 };
 gulp.task('build:styles:css', gulp.series(buildStylesOther, cleanUnusedCss));

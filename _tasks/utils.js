@@ -21,7 +21,7 @@ module.exports = {
    * @param destinations
    *   An array of destinations where the resulting CSS file should be placed.
    */
-  buildStyles: (scssRoot, destinations, forceReload = false) => {
+  buildStyles: (scssRoot, destinations) => {
     let stream = gulp
       .src(paths.sassFiles + scssRoot)
       .pipe(sourcemaps.init())
