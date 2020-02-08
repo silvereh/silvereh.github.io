@@ -48,3 +48,4 @@ defaults:
 
 permalink: /:collection/:title:output_ext
 
+theme: null
