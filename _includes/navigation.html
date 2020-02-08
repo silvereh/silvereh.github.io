@@ -7,7 +7,9 @@
 						<a class="navlink" href="{{ item.link }}">{{ item.name }}</a>
 					</li>
 				{% else %}
-					<li class="current">{{ item.name }}</li>
+					<li>
+						<span class="navlink active">{{ item.name }}</span>
+					</li>
 				{% endif %}
 			{% endfor %}
 		</ul>
