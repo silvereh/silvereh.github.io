@@ -1,10 +1,11 @@
 # Jekyll
-# _site/
+_site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 assets
-# _includes/css
+_includes/head
+_includes/bottom
 
 # Mac
 .DS_Store

@@ -1,17 +1,38 @@
 <header>
 	<nav class="container">
-		<ul class="list-inline">
-			{% for item in site.data.navigation %}
-				{% if page.url != item.link %}
-					<li>
-						<a class="navlink" href="{{ item.link }}">{{ item.name }}</a>
-					</li>
-				{% else %}
-					<li>
-						<span class="navlink active">{{ item.name }}</span>
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
+		<div class="row">
+			<div class="col-8">
+				<ul class="list-inline">
+					{%- for item in site.data.navigation.languages -%}
+						{%- if item.language == page.lang -%}
+							{%- for link in item.links -%}
+								{%- if link.url != page.url -%}
+									<li>
+										<a class="navlink" href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a>
+									</li>
+									{%- else -%}
+									<li>
+										<span class="navlink active">{{ link.title }}</span>
+									</li>
+								{%- endif -%}
+							{%- endfor -%}
+						{%- endif -%}
+					{%- endfor -%}
+				</ul>
+			</div>
+			<div class="col-4 text-right">
+				<ul class="list-inline">
+					{%- for lang in site.languages -%}
+						{%- assign langPat = "/" | append: lang | append: "/" -%}
+						{%- assign pageLangPat = "/" | append: page.lang | append: "/" -%}
+						{%- if lang == page.lang -%}
+							<span class="navlink active">{{ lang }}</span>
+						{%- else -%}
+							<a class="navlink" href='{{ page.url | replace: pageLangPat, langPat }}'>{{ lang }}</a>
+						{%- endif -%}
+					{%- endfor -%}
+				</ul>
+			</div>
+		</div>
 	</nav>
 </header>

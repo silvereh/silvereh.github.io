@@ -1,13 +1,23 @@
 # Basic info
+name: Silvere Heraudeau
 title: Silvere Heraudeau
 email: silvere.heraudeau@gmail.com
-description: My personal website
+description: 
+  en: My personal website
+  fr: Mon site personnel
+disclaimer:
+  en: "Disclaimer: This site is currently in construction. As such, almost no styles are present. I am currently working on a design."
+  fr: "Avertissement : Ce site est actuellement en construction. C'est pourquoi il n'y a presque pas de styles. Je suis en train de travailler sur une apparence visuelle."
+lang: en
+languages: ["en", "fr"]
+permalink: /:categories/:collection/:title/
 
 # Base URL is used in the manner that is specified by this guide
 # (http://jekyllrb.com/docs/github-pages/) which is to say, it's
 # not used at all.
 baseurl: ""
 url: "https://silvereh.github.io"
+github_username: silvereh
 
 # Languages and syntax highlighting
 markdown: kramdown
@@ -45,7 +55,5 @@ defaults:
     values:
       layout: "default"
       author: "Silvere Heraudeau"
-
-permalink: /:collection/:title:output_ext
 
 theme: null

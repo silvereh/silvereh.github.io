@@ -87,7 +87,7 @@ paths.htmlTestFiles = [
   // '!_site/blog/tag/tridug/index.html'
 ];
 
-paths.includesHead = '_includes/head';
-paths.includesBottom = '_includes/bottom';
+paths.includesHead = '_includes/styles';
+paths.includesBottom = '_includes/scripts';
 
 module.exports = paths;

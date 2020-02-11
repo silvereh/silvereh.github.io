@@ -1,7 +1,9 @@
 ---
 title: Streamline Your Web Development With Gulp
-categories: [workflow, development]
-tags: [gulp]
+tags: [gulp, workflow, development]
+lang: en
+ref: gulp-tutorial
+categories: [en]
 ---
 [Gulp][1] is a tool that allows the automation of tedious development tasks like compiling source code, minifying output code, build a project, etc ...
 
@@ -9,9 +11,9 @@ tags: [gulp]
 
 ## Why Gulp?
 
-In the past, I worked on a project built with Grunt and at first, I thought about using it again. Unfortunately, I couldn’t find a way to get it to work. I think I couldn’t find a tutorial clear enough on how to install and setup Grunt. I knew beforehand that Gulp could help me accomplish the same goal and so I went ahead to find a good tutorial. The first result in my Google search was [a tutorial from CSS-trick][2], and it was just what I needed. I also used as a reference [this other tutorial on gitconnected][3], but it's not very explicit. That's why I decided to write this article.
+In the past, I worked on a project built with Grunt and at first, I thought about using it again. Unfortunately, I couldn’t find a way to get it to work. I think I couldn’t find a tutorial clear enough on how to install and setup Grunt. I knew beforehand that Gulp could help me accomplish the same goal and so I went ahead to find a good tutorial. The first result in my Google search was [a tutorial from CSS-Trick][2], and it was just what I needed. I also used as a reference [this other tutorial on GitConnected][3], but it's not very explicit. That's why I decided to write this article.
 
-[2]: https://css-tricks.com/gulp-for-beginners/ "CSS-trick article on getting started with Gulp"
+[2]: https://css-tricks.com/gulp-for-beginners/ "CSS-Trick article on getting started with Gulp"
 [3]: https://levelup.gitconnected.com/how-to-setup-your-workflow-using-gulp-v4-0-0-5450e3d7c512 "GitConnected article on setting up a workflow with Gulp"
 
 ## The process
@@ -38,7 +40,7 @@ Note: from this point and forward, it is not necessary anymore for Mac users to 
   npm init
 ```
 
-During the initialization process, npm will ask you a lot of questions meant to establish the package.json file. You can always edit those options later by updating the package.json file.
+During the initialization process, npm will ask you several questions meant to establish the package.json file. You can always edit those options later by updating the package.json file.
 
 Alternatively, you can run `npm init` with the `-y` flag and those questions will be skipped.
 
@@ -61,9 +63,9 @@ The package.json file will look something like this:
   }
 ```
 
-### Step 3: Install gulp in the project
+### Step 3: Install Gulp in the project
 
-Once our project correctly initialized, we can install gulp into it, which will allow us to have gulp automate the most tedious development tasks. In this step, we will install gulp, along with all the other dependencies we will need for our project:
+Once our project correctly initialized, we can install Gulp into it, which will allow us to have Gulp automate the most tedious development tasks. In this step, we will install Gulp, along with all the plugins we will need for our project:
 
 ```txt
   npm install --save-dev gulp gulp-sass gulp-sourcemaps browser-sync gulp-useref gulp-postcss uncss postcss-uncss css-nano gulp-uglify del
@@ -80,8 +82,7 @@ The flag `--save-dev` informs npm that the package installed (in this case gulp)
 
 Gulp is very flexible and will adapt to any project structure, that doesn't mean we should let it be a prey to all of our whims. It's always better to define upfront what our project structure will be, so that we know where everything will go.
 
-
-For this project, I used the following structure, which is a very standard way of structuring a web application.
+For this project, We will use the following structure, which is a very standard way of structuring a web application.
 
 ```txt
   |- dist/
@@ -96,11 +97,11 @@ For this project, I used the following structure, which is a very standard way o
     |- scss/
 ```
 
-In our project, we will use the dist folder (shorthand for distribution) to host production optimized files, while the src (shorthand for source) folder will contain our development code. You probably noticed the gulpfile.js in our tree, this is the file that will contain all of Gulp's configurations. It needs to be called that way to work.
+We will use the dist folder (shorthand for distribution) to host production optimized files, while the src (shorthand for source) folder will contain our development code, more readable, but heavier. You probably noticed the gulpfile.js in our tree, this file will contain our configuration for Gulp. It is possible to compartmentalize it at will, but it is absolutely necessary and cannot be named differently.
 
 ### Step5: Writing gulp tasks
 
-To be able to use Gulp, we need to require it in the gulpfile.js, otherwise, the compiler wouldn't be able to understand what the gulp command is.
+To be able to use Gulp, we need to require it in the gulpfile.js, otherwise, the compiler wouldn't be able to understand what gulp is.
 
 Note: I use the [ECMAScript 6 notation][7] in this tutorial as it gives more structure and is more restricted, but standard JavaScript notation will work just the same.
 
@@ -108,7 +109,7 @@ Note: I use the [ECMAScript 6 notation][7] in this tutorial as it gives more str
   let gulp = require('gulp');
 ```
 
-This statement tells node to look for the gulp package in node_modules, and import it into the project so it can be used. This also assign the content of the package to a variable called gulp.
+This statement tells Node to look for the gulp package in node_modules, and import it into a variable so it can be used in the project.
 
 There are 2 ways to write a gulp task:
 
@@ -130,7 +131,7 @@ There are 2 ways to write a gulp task:
   exports.taskName = taskName;
 ```
 
-The second method has the advantage of allowing you to decide which tasks you want to expose. If you want a task to stay internal to the gulp process, just omit the `export` statement.
+The second method has the advantage of allowing you to decide which tasks you want to expose. If you want a task to stay internal to the Gulp process, just omit the `export` statement.
 
 [7]: https://www.w3schools.com/js/js_es6.asp "w3schools article on ECMAScript 6"
 
@@ -156,7 +157,7 @@ You should have something that looks like this in your gulpfile.js.
   exports.style = style;
 ```
 
-To make sure this works as expected, simply put a sass function into main.scss, run the gulp sass command on the command line, and you will see that your src/css folder has been populated with a main.css file containing the class definition generated in main.scss.
+To make sure this works as expected, simply put a sass function into main.scss, run the `gulp style` command on the command line, and you will see that your src/css folder has been populated with a main.css file containing the class definition generated in main.scss.
 
 #### Globbing
 
@@ -172,7 +173,7 @@ There are 4 main patterns to be aware of:
 With this new knowledge, we can replace `'src/scss/main.scss'` with `'src/scss/**/*.scss'` to process all scss files contained within our scss folder and its children.
 
 
-Note: If you use a more generic glob like `'src/**/*.scss`, gulp will generate the appropriate files, but will nest them further into your css folder, ending with a result like that:
+Note: If you use a more generic glob like `'src/**/*.scss'`, gulp will generate the appropriate files, but will nest them further into your css folder, ending with a result like that:
 
 ```txt
   |- src
@@ -203,13 +204,13 @@ Before going any further, let's save our desired paths into a constant, so we do
   }
 ```
 
-It's good to be able to compile our scss files with a simple command like `gulp sass`, but if we have to manually run it everytime, there is no point in creating all this in the first place. Fortunately, Gulp can handle automation through a process called watching.
+It's good to be able to compile our scss files with a simple command like `gulp style`, but if we have to manually run it everytime, there is no point in creating all this in the first place. Fortunately, Gulp can handle automation through a process called watching.
 
 [8]: https://gulpjs.com/docs/en/getting-started/explaining-globs "Gulp documentation on globs"
 
 #### Watching
 
-The [`watch`][9] method provided by Gulp allows it to observe the specified set of files and automatically do an action when one of them changes. This will allow us to automatically compile our scss files when they change, without having to type the `gulp sass` command every time.
+The [`watch`][9] method provided by Gulp allows it to observe the specified set of files and automatically do an action when one of them changes. This will allow us to automatically compile our scss files when they change, without having to type the `gulp style` command every time.
 
 The watch method is used with the following syntax:
 
@@ -243,7 +244,7 @@ It may not seem like it at this point, but when your project starts to get long,
 
 This plugin will map all your changes into a `.map` file that the browser inspector can then use to tell you where some specific style was applied.
 
-We just need to include it in our project and inject it in our style function.
+We just need to include it in our project and inject it in our `style()` function.
 
 ```javascript
   let sourcemaps = require('gulp-sourcemaps');
@@ -263,7 +264,7 @@ All of that is good, but what about we try to automatically reload our browser w
 
 #### Automatic browser reloading
 
-[Browser Sync][11] allows us tu run a local server on our project, allowing us live-reloading of our browser page.
+[Browser Sync][11] allows us tu run a local server on our project, allowing us the live-reloading of our browser page.
 
 The syntax for including Browser Sync in our project is slightly different:
 
@@ -271,7 +272,7 @@ The syntax for including Browser Sync in our project is slightly different:
   let browserSync = require('browser-sync').create();
 ```
 
-Once Browser Sync is included in our project, we can initialize it at the beginning of our watcher function.
+Once Browser Sync is included in our project, we can initialize it at the beginning of our `watch()` function.
 
 ```javascript
   browserSync.init({
@@ -285,11 +286,11 @@ Once Browser Sync is included in our project, we can initialize it at the beginn
   });
 ```
 
-The option baseDir tells BrowserSync which directory to watch, make sure that all produced files are contained within this directory or Browser Sync won't be able to pick them up.
+The option baseDir tells Browser Sync which directory to watch, make sure that all produced files are contained within this directory or Browser Sync won't be able to pick them up.
 
-Note: if you're already running a local server via apache for example, you can set the proxy option to let Browser Sync which address to automatically reload.
+Note: if you're already running a local server via apache for example, you can set the proxy option to let Browser Sync know which address to automatically reload.
 
-Now let's make a function to reload the browser page. I will not expose this function since it will only be internal to gulp process.
+Now let's write a function to reload the browser page. We will not expose this function since it will only be internal to the Gulp process.
 
 ```javascript
   let reload = () => {
@@ -311,7 +312,7 @@ We will also add the `browserSync.stream()` pipe to our style function so that, 
   }
 ```
 
-By calling the reload function at the end of our watcher function, we ensure that after our changes have been processed, the browser page will be reloaded.
+By calling the reload function at the end of our `watch()` function, we ensure that after our changes have been processed, the browser page will be reloaded.
 
 ```javascript
   gulp.watch([PATHS.HTML.SRC, PATHS.JS.SRC]).on('change', reload);
@@ -368,7 +369,7 @@ At this point, your gulpfile.js should look like this:
   exports.watch = watch;
 ```
 
-Note: I am not exporting the style function anymore since the watch function takes care of it all by itself.
+Note: I am not exporting the `style()` function anymore since the `watch()` function takes care of it all by itself.
 
 From there, we have a working development directory that will allow us to work without having to worry about updating our files and browser window constantly. But what about when we are done, and we need to release some code?
 
@@ -391,9 +392,9 @@ To be able to work, useref reads specific html comments to know what files it ne
   <!-- endbuild -->
 ```
 
-`[type]` indicates to useref what type of file it is. it can be `css`, `js`, or `remove`. `remove` indicates to useref that the block should be skipped.
+`[type]` indicates to useref what type of file it is. It can be `css`, `js`, or `remove`. `remove` indicates to useref that the block should be skipped.
 
-Now let's make a `deploy` task for useref.
+Now let's write a `deploy` task for useref.
 
 ```javascript
   let useref = require('gulp-useref');
@@ -418,7 +419,9 @@ We also need to add the necessary comments in our index.html file.
 
 We can now run the following in the command line to concatenate our files.
 
+```txt
   gulp deploy
+```
 
 We can now see that our dist folder is a replica of our src folder, except that our css folder now contains a `main.min.css` file instead of `main.css` and the index.html file now contains the following instead of the 3 lines we had before.
 
@@ -430,7 +433,7 @@ Our `src/css` folder contains some nice, human-readable css, but that's not what
 
 [12]: https://www.npmjs.com/package/gulp-useref "NPM official gul-useref package information"
 
-#### Optimizing css with postcss
+#### Optimizing CSS with PostCSS
 
 The [postcss][13] plugin allows us to process further our compiled css files by:
 
@@ -480,7 +483,7 @@ We are going to use [uncss][15] to remove any css class that is not used within 
 You can see we passed an object as parameter to uncss:
 
 - The html parameter is the list of html files to look into to find unused classes. Fortunately we can use globs here.
-- The ignore parameter is a list of class names that we want to conserve, even if they are not used. This is useful for classes that we might only set with javascript, for example.
+- The ignore parameter is a list of class names that we want to conserve, even if they are not used. This is useful for classes that we might only set with JavaScript, for example.
 
 [15]: https://www.npmjs.com/package/postcss-uncss "NPM official postcss-uncss package information"
 
@@ -509,9 +512,9 @@ Now that any unused css has been removed, we need to minify the output, to reduc
 
 Note: If all your html files don't live in the same folder, useref might fail at concatenating your css and js files correctly. In addition, uncss will cause arrors and fail to accomplish its task. If your project requires a more complex structure, you might need to find a different solution to remedy to this problem.
 
-### Step 7: Minifying javascript
+### Step 7: Minifying JavaScript
 
-Now that we are able to produce a clean, minified css, we need to do the same with javascript. Fortunately, the process is much simpler in this case, we just have a minification step. We will implement that in the deploy function with [uglify][18].
+Now that we are able to produce a clean, minified css, we need to do the same with JavaScript. Fortunately, the process is much simpler in this case, we just have a minification step. We will implement that in the `deploy()` function with [uglify][18].
 
 ```javascript
   let uglify = require('gulp-uglify');
@@ -544,7 +547,7 @@ Now that we have been able to generate all the files we wanted, we need to make 
 
 [18]: https://www.npmjs.com/package/gulp-uglify "NPM official gulp-uglify package information"
 
-### Step 8: Make sure that we don't keep unwanted generated files.
+### Step 8: Make sure to not keep unwanted generated files.
 
 The cleaning step is the most important step of our workflow. Indeed, it will ensure the integrity of our build. Paradoxically, even though it is the last step I'm presenting, it actually is the first step of the workflow.
 

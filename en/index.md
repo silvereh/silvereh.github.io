@@ -1,9 +1,12 @@
 ---
-title: Silvere Heraudeau
+title: About
+lang: en
+ref: index
+categories: [en]
 ---
 # About me
 
-Hello, I'm {{ site.data.info.name }}!
+Hello, I'm {{ site.name }}!
 
 I currently live in Rexburg, Idaho, where I'm about to graduate with a Bachelor's degree in Software Engineering.
 
