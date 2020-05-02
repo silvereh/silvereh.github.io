@@ -68,7 +68,7 @@ The package.json file will look something like this:
 Once our project correctly initialized, we can install Gulp into it, which will allow us to have Gulp automate the most tedious development tasks. In this step, we will install Gulp, along with all the plugins we will need for our project:
 
 ```txt
-  npm install --save-dev gulp gulp-sass gulp-sourcemaps browser-sync gulp-useref gulp-postcss uncss postcss-uncss css-nano gulp-uglify del
+  npm install --save-dev gulp gulp-sass gulp-sourcemaps browser-sync gulp-useref gulp-postcss uncss postcss-uncss cssnano gulp-uglify del
 ```
 
 Note: If you develop your project with less instead of sass, you will want tu install [`gulp-less`][5] instead of [`gulp-sass`][6]. If that's your case, simply replace the calls appropriately in your project as you follow along this tutorial.
@@ -94,7 +94,7 @@ For this project, We will use the following structure, which is a very standard 
       |- css/
       |- index.html
       |- js/
-    |- scss/
+      |- scss/
 ```
 
 We will use the dist folder (shorthand for distribution) to host production optimized files, while the src (shorthand for source) folder will contain our development code, more readable, but heavier. You probably noticed the gulpfile.js in our tree, this file will contain our configuration for Gulp. It is possible to compartmentalize it at will, but it is absolutely necessary and cannot be named differently.

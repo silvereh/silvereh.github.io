@@ -1,4 +1,5 @@
 ---
+layout: pic
 title: Contact
 lang: fr
 ref: articles
