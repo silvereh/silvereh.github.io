@@ -1,0 +1,49 @@
+// Text
+
+.text-sans-serif { @include ff-sans-serif; }
+.text-serif      { @include ff-serif; }
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-left   { text-align: left !important; }
+    .text#{$infix}-right  { text-align: right !important; }
+    .text#{$infix}-center { text-align: center !important; }
+  }
+}
+
+// Transformation
+
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Weight and italics
+
+.font-weight-normal      { font-weight: normal !important; }
+.font-weight-bold        { font-weight: bold !important; }
+.font-style-normal       { font-style: normal !important; }
+.font-style-italic       { font-style: italic !important; }
+
+// Contextual colors
+
+.text-white { color: $white !important; }
+
+.text-black { color: $black !important; }
+
+// @each $color, $value in $brand-colors {
+//   @include text-emphasis-variant(".text-#{$color}", $value);
+// }
+
+// Lists
+
+.list-unstyled {
+  @include list-unstyled;
+}
+
+.list-inline {
+  @include list-inline;
+}

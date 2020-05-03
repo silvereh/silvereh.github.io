@@ -1,0 +1,39 @@
+@mixin centered-parent() {
+  @include d-flex();
+  height: 100%;
+  width: 100%;
+
+  > :nth-child(n) {
+    margin: auto;
+  }
+}
+
+@mixin centered-parent-inline() {
+  @include d-inline-flex();
+  height: 100%;
+  width: 100%;
+
+  > :nth-child(n) {
+    margin: auto;
+  }
+}
+
+@mixin centered-parent-y() {
+  @include d-flex();
+  height: 100%;
+  width: 100%;
+
+  > :nth-child(n) {
+    margin: auto 0;
+  }
+}
+
+@mixin centered-parent-x() {
+  @include d-flex();
+  height: 100%;
+  width: 100%;
+
+  > :nth-child(n) {
+    margin: 0 auto;
+  }
+}

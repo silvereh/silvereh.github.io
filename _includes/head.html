@@ -12,18 +12,13 @@
   <meta name="description" content="{%- if page.excerpt -%}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{%- else -%}{{ site.description[page.lang] }}{%- endif -%}">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-v4-grid-only@1.0.0/dist/bootstrap-grid.min.css">
-  <!-- We need to inline styles because Github doesn't pick them up. -->
-  <style>{%- include styles/main.css -%}</style>
-  <!-- Inline critical CSS. -->
-  <style>{%- include styles/critical.css -%}</style>
-
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
   {%- assign posts=site.posts | where:"ref", page.ref | sort: 'lang' -%}
   {%- for post in posts -%}
-    <link rel="alternate" hreflang="{{ post.lang }}" href="{{ post.url }}" />
+    <link rel="alternate" hreflang="{{ post.lang }}" href="{{ post.url | prepend: site.url }}" />
   {%- endfor -%}
   {%- assign pages=site.pages | where:"ref", page.ref | sort: 'lang' -%}
   {%- for page in pages -%}
-    <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url }}" />
+    <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | prepend: site.url }}" />
   {%- endfor -%}
 </head>

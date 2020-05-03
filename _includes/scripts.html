@@ -1,3 +1,11 @@
-<script type=text.javascript>
-	{%- include scripts/main.js -%}
-</script>
+{% if site.env == "prod" %}
+	<script type=text.javascript>
+		{%- include js/runtime.bundle.js -%}
+	</script>
+	<script type=text.javascript>
+		{%- include js/main.js -%}
+	</script>
+{% else %}
+	<script type="text/javascript" src="{{ site.ur }}/assets/js/runtime.bundle.js" charset="utf-8"></script>
+	<script type="text/javascript" src="{{ site.ur }}/assets/js/main.js" charset="utf-8"></script>
+{% endif %}

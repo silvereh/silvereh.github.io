@@ -1,16 +1,33 @@
 # Basic info
-name: Silvere Heraudeau
-title: Silvere Heraudeau
-email: silvere.heraudeau@gmail.com
+name: "Silvère Héraudeau"
+job: 
+  en: "Software Engineer"
+  fr: "Ingénieur Logiciel"
+title: "Silvere Heraudeau"
+email: "silvere.heraudeau@gmail.com"
 description: 
-  en: My personal website
-  fr: Mon site personnel
+  en: "My personal website"
+  fr: "Mon site personnel"
+picture: 
+  url: "/assets/img/silvereh-sm.jpg"
+  alt: 
+    en: "Picture of me"
+    fr: "Photo de moi"
 disclaimer:
   en: "Disclaimer: This site is currently in construction. As such, almost no styles are present. I am currently working on a design."
   fr: "Avertissement : Ce site est actuellement en construction. C'est pourquoi il n'y a presque pas de styles. Je suis en train de travailler sur une apparence visuelle."
-lang: en
+lang: "en"
 languages: ["en", "fr"]
+language:
+  en: "English"
+  fr: "Français"
 permalink: /:categories/:collection/:title/
+env: "prod"
+pics:
+  fr: "/assets/img/flag-fr.svg"
+  en: "/assets/img/flag-us.svg"
+  logo: "/assets/img/logo.svg"
+  nav: "/assets/img/toggle-nav.svg"
 
 # Base URL is used in the manner that is specified by this guide
 # (http://jekyllrb.com/docs/github-pages/) which is to say, it's
@@ -30,12 +47,14 @@ kramdown:
 include: ["_content"]
 
 exclude: [
-  "_assets",
   "Gemfile",
   "Gemfile.lock",
-  "gulpfile.js",
   "node_modules",
-  "package.json"
+  "package.json",
+  "package-lock.json",
+  "webpack.config.js",
+  "README.md",
+  "webpack"
 ]
 
 plugins:

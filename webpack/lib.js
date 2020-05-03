@@ -19,6 +19,21 @@ Element.prototype.toggleAttribute = function (attribute, value) {
 };
 
 /**
+ * Summary. Toggles on and off the value of the specified attribute of the element.
+ *
+ * @since   1.0.0.
+ * @version 1.0.0.
+ * @param 	string 	name of the attribute to toggle.
+ */
+Element.prototype.toggleAttributeValue = function (attribute) {
+	if (this.hasAttribute(attribute)) {
+		var value = this.getAttribute(attribute);
+		var newVal = value === "true" ? "false" : value === "false" ? "true" : value;
+		this.setAttribute(attribute, newVal);
+	}
+};
+
+/**
  * Summary. Checks whether the element has the specified class.
  *
  * @since   1.0.0.

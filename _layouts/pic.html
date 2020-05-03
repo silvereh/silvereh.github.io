@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="row mt">
+	<div class="col-5">
+		<picture>
+			<img class="pic-thumb" src="{{ site.picture.url | prepend: site.url }}" alt="{{ site.picture.alt[page.lang] }}">
+		</picture>
+	</div>
+	<div class="col">
+		<p class="pic-name">{{ site.name }}</p>
+		<p class="pic-job">{{ site.job[page.lang] }}</p>
+	</div>
+</div>
+
+{{ content }}

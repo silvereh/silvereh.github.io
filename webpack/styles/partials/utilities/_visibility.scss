@@ -1,0 +1,42 @@
+
+.hidden {
+	display: none !important;
+}
+
+.hidden-xs {
+	@include media-breakpoint-only(xs) {
+		display: none !important;
+	}
+}
+
+.hidden-sm {
+	@include media-breakpoint-only(sm) {
+		display: none !important;
+	}
+}
+
+.hidden-md {
+	@include media-breakpoint-only(md) {
+		display: none !important;
+	}
+}
+
+.hidden-lg {
+	@include media-breakpoint-only(lg) {
+		display: none !important;
+	}
+}
+
+.hidden-xl {
+	@include media-breakpoint-only(xl) {
+		display: none !important;
+	}
+}
+
+.sr-only {
+	@include sr-only;
+}
+
+.sr-only-focusable {
+	@include sr-only-focusable;
+}

@@ -1,0 +1,116 @@
+header,
+footer {
+	background-color: $black;
+	color: $white;
+	padding: 15px;
+
+	a {
+		color: $white;
+		text-decoration: underline;
+	}
+
+	ul {
+		margin: 0;
+	}
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: [logoStart] 45px [logoEnd] 1fr [langToggleStart] 45px [langToggleEnd] 15px [navToggleStart] 45px [navToggleEnd];
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns: [logoStart] 45px [logoEnd] 1fr [langToggleStart] 45px [langToggleEnd];
+	}
+}
+.link-icon {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 30px;
+	width: 45px;
+}
+.flaglink {
+	grid-column: langToggleStart / langToggleEnd;
+	grid-row: 1;
+}
+.nav-toggle {
+	grid-column: navToggleStart / navToggleEnd;
+	grid-row: 1;
+	border: none;
+	background-color: transparent;
+
+	@include media-breakpoint-up(md) {
+		display: none;
+	}
+}
+.logo {
+	grid-column: logoStart / logoEnd;
+	grid-row: 1;
+}
+.nav {
+	position: absolute;
+	top: 60px;
+	right: 0;
+	bottom: 0;
+	width: 75%;
+	background-color: black;
+	z-index: 10;
+	padding: 0 10px;
+
+	@include media-breakpoint-up(md) {
+		position: inherit;
+		width: 100%;
+	}
+
+	&-link {
+		display: block;
+		padding: 15px;
+
+		@include media-breakpoint-up(md) {
+			padding: 5px 15px;
+		}
+
+		@include hover {
+			background-color: $white;
+			color: $grey;
+		}
+
+		@include active {
+			background-color: $white;
+			color: $grey;
+		}
+	}
+
+	&-list {
+		@include list-unstyled;
+
+		@include media-breakpoint-up(md) {
+			@include list-inline;
+		}
+	}
+}
+
+.pic {
+	&-thumb {
+		max-width: 100%;
+		border-radius: 50%;
+	}
+
+	&-name {
+		font-weight: bold;
+		font-style: italic;
+		font-size: 1.3em;
+
+		@include media-breakpoint-up(md) {
+			font-size: 36px;
+		}
+	}
+
+	&-job {
+		font-style: italic;
+
+		@include media-breakpoint-up(md) {
+			font-size: 28px;
+		}
+	}
+}
