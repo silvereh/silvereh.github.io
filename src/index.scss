@@ -16,6 +16,20 @@ code {
     monospace;
 }
 
-h1 {
+h1, h2, h3 {
   color: $gold;
+}
+
+p {
+	color: $offwhite;
+}
+
+.hidden-xs {
+	@include media-breakpoint-down(sm) {
+		display: none;
+	}
+}
+
+.sr-only {
+	@include sr-only;
 }

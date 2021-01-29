@@ -1,0 +1,62 @@
+@import '../functions';
+@import '../mixins';
+@import '../variables';
+
+.Home {
+	text-align: center;
+	font-size: 150%;
+	margin: auto;
+	height: 450px;
+	overflow: hidden;
+	perspective: 150px;
+
+	&-content {
+		transform-style: preserve-3d;
+		transform: rotateX(20deg);
+		animation: linear 10s slide-up infinite;
+		margin-top: 0%;
+	}
+
+	&-text {
+		color: $gold;
+		font-family: Impact;
+	}
+
+	&-job-title {
+		font-size: 150%;
+
+		&::before {
+			display: block;
+			height: 100px;
+			width: 100%;
+			animation: linear 20s text-switch infinite;
+			content: "Web Engineer";
+		}
+	}
+}
+
+@keyframes slide-up {
+	from {
+		margin-top: 100%;
+	}
+
+	to {
+		margin-top: -80%;
+	}
+}
+
+@keyframes text-switch {
+	from {
+		content: "Web Engineer";
+	}
+
+	to {
+		content: "Software Engineer";
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.Home {
+		font-size: 200%;
+	}
+}
