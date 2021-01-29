@@ -14,6 +14,7 @@ import GithubIcon from './assets/icons/github.js';
 import LinkedinIcon from './assets/icons/linkedin.js';
 
 import Home from './content/Home.js';
+import Construction from './content/Construction.js';
 
 import './App.scss';
 import './Shooting-stars.scss';
@@ -27,11 +28,11 @@ const Header = () => {
 				<a className="App-icon App-linkedin" href="https://www.linkedin.com/in/sheraudeau/" target="_blank"><LinkedinIcon /></a>
 			</div>
 			<nav className="App-nav">
-				<NavLink className="App-icon App-home" to="/" exact><HomeIcon /></NavLink>
-				<NavLink className="App-icon App-about" to="/"><AboutIcon /></NavLink>
-				<NavLink className="App-icon App-portfolio" to="/"><PortfolioIcon /></NavLink>
-				<NavLink className="App-icon App-blog" to="/"><BlogIcon /></NavLink>
-				<NavLink className="App-icon App-contact" to="/"><ContactIcon /></NavLink>
+				<NavLink className="App-icon App-home" 			to="/" exact><HomeIcon /></NavLink>
+				<NavLink className="App-icon App-about" 		to="/about"><AboutIcon /></NavLink>
+				<NavLink className="App-icon App-portfolio" to="/portfolio"><PortfolioIcon /></NavLink>
+				<NavLink className="App-icon App-blog" 			to="/blog"><BlogIcon /></NavLink>
+				<NavLink className="App-icon App-contact" 	to="/contact"><ContactIcon /></NavLink>
 			</nav>
 		</header>
 	);
@@ -83,7 +84,11 @@ const App = () => {
 					<div class="shooting_star"></div>
 				</div>
 				<main class="App-content">
-					<Route exact path="/" component={ Home } />
+					<Route path="/" exact component={ Home } />
+					<Route path="/about" component={ Construction } />
+					<Route path="/portfolio" component={ Construction } />
+					<Route path="/blog" component={ Construction } />
+					<Route path="/contact" component={ Construction } />
 				</main>
 			</HashRouter>
 		</div>
