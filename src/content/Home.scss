@@ -27,10 +27,17 @@
 
 		&::before {
 			display: block;
-			height: 100px;
+			height: 50px;
 			width: 100%;
 			animation: linear 20s text-switch infinite;
-			content: "Web Engineer";
+			content: "Web";
+		}
+
+		&::after {
+			display: block;
+			height: 50px;
+			width: 100%;
+			content: "Engineer";
 		}
 	}
 }
@@ -41,17 +48,17 @@
 	}
 
 	to {
-		margin-top: -80%;
+		margin-top: -100%;
 	}
 }
 
 @keyframes text-switch {
 	from {
-		content: "Web Engineer";
+		content: "Web";
 	}
 
 	to {
-		content: "Software Engineer";
+		content: "Software";
 	}
 }
 

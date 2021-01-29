@@ -15,19 +15,20 @@
   }
 
   &-links {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 80px;
-    background-color: $dark;
-    color: $gold;
-    z-index: 10;
-    display: grid;
-    grid-template-columns: [start logo-start] 100px [logo-end] 1fr [github-start] 60px [github-end linkedin-start] 60px [linkedin-end end];
-    grid-template-rows: auto;
-    grid-template-areas: "logo . github linkedin";
-    justify-items: center;
+    display: none;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // right: 0;
+    // height: 80px;
+    // background-color: $dark;
+    // color: $gold;
+    // z-index: 10;
+    // display: grid;
+    // grid-template-columns: [start logo-start] 100px [logo-end] 1fr [github-start] 60px [github-end linkedin-start] 60px [linkedin-end end];
+    // grid-template-rows: auto;
+    // grid-template-areas: "logo . github linkedin";
+    // justify-items: center;
   }
 
   &-nav {
@@ -35,7 +36,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    height: 80px;
+    height: 60px;
     background-color: $dark;
     color: $gold;
     z-index: 10;
@@ -69,9 +70,9 @@
     height: 50px;
     
     svg {
-      height: 80%;
-      padding-left: 10%;
-      width: 80%;
+      height: 60%;
+      padding: 20%;
+      width: 60%;
     }
 
     path {
@@ -80,9 +81,9 @@
 
     @include hover-focus {
       svg {
-        height: 100%;
-        padding-left: 0;
-        width: 100%;
+        height: 80%;
+        padding: 10%;
+        width: 80%;
       }
 
       path {
@@ -121,7 +122,7 @@
 
   &-content {
     position: absolute;
-    top: 80px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 80px;
@@ -167,6 +168,22 @@
     &-content {
       top: 0;
       left: 100px;
+    }
+
+    &-icon {
+      svg {
+        height: 80%;
+        padding: 10%;
+        width: 80%;
+      }
+
+      @include hover-focus {
+        svg {
+          height: 100%;
+          padding: 0;
+          width: 100%;
+        }
+      }
     }
   }
 }
