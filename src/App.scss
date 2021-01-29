@@ -118,6 +118,14 @@
   &-linkedin {
     grid-area: linkedin;
   }
+
+  &-content {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    padding: 15px;
+  }
 }
 
 @include media-breakpoint-up(sm) {
@@ -151,6 +159,11 @@
     &-links,
     &-nav {
       display: contents;
+    }
+
+    &-content {
+      top: 0;
+      left: 100px;
     }
   }
 }

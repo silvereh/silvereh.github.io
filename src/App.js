@@ -13,6 +13,8 @@ import ContactIcon from './assets/icons/contact.js';
 import GithubIcon from './assets/icons/github.js';
 import LinkedinIcon from './assets/icons/linkedin.js';
 
+import Home from './Home.js';
+
 import './App.scss';
 import './Shooting-stars.scss';
 
@@ -38,47 +40,52 @@ const Header = () => {
 const App = () => {
 	return (
 		<div className="App">
-			<Header />
-			<div class="night">
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-			</div>
-			<div class="night">
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-			</div>
-			<div class="night">
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-			</div>
-			<div class="night">
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-				<div class="shooting_star"></div>
-			</div>
+			<HashRouter>
+				<Header />
+				<div class="night">
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+				</div>
+				<div class="night">
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+				</div>
+				<div class="night">
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+				</div>
+				<div class="night">
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+					<div class="shooting_star"></div>
+				</div>
+				<main class="App-content">
+					<Route exact path="/" component={ Home } />
+				</main>
+			</HashRouter>
 		</div>
 	);
 }
