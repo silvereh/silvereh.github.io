@@ -1,0 +1,11 @@
+@import '../functions';
+@import '../mixins';
+@import '../variables';
+
+@include media-breakpoint-up(md) {
+	.About {
+		&-content {
+			max-width: 35%;
+		}
+	}
+}

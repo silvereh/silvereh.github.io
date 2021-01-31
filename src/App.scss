@@ -3,36 +3,22 @@
 @import './variables';
 
 .App {
-  background-color: $black;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
+  // height: 100vh;
+  // overflow: hidden;
+  // display: flex;
   // font-family: sans-serif;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
 
   &-header {
   }
 
   &-links {
     display: none;
-    // position: absolute;
-    // left: 0;
-    // top: 0;
-    // right: 0;
-    // height: 80px;
-    // background-color: $dark;
-    // color: $gold;
-    // z-index: 10;
-    // display: grid;
-    // grid-template-columns: [start logo-start] 100px [logo-end] 1fr [github-start] 60px [github-end linkedin-start] 60px [linkedin-end end];
-    // grid-template-rows: auto;
-    // grid-template-areas: "logo . github linkedin";
-    // justify-items: center;
   }
 
   &-nav {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     right: 0;
@@ -79,7 +65,7 @@
       fill: $gold;
     }
 
-    @include hover-focus {
+    @include hover-focus-active {
       svg {
         height: 80%;
         padding: 10%;
@@ -121,21 +107,14 @@
   }
 
   &-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 80px;
     padding: 15px;
-    display: flex;
-    align-items: stretch;
   }
 }
 
 @include media-breakpoint-up(sm) {
   .App {
     &-header {
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 0;
       bottom: 0;
@@ -166,18 +145,17 @@
     }
 
     &-content {
-      top: 0;
-      left: 100px;
+      margin-left: 100px;
     }
 
     &-icon {
       svg {
-        height: 80%;
-        padding: 10%;
-        width: 80%;
+        height: 70%;
+        padding: 15%;
+        width: 70%;
       }
 
-      @include hover-focus {
+      @include hover-focus-active {
         svg {
           height: 100%;
           padding: 0;

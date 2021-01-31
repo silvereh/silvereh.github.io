@@ -3,18 +3,32 @@
 @import '../variables';
 
 .Home {
-	text-align: center;
-	font-size: 150%;
-	margin: auto;
-	height: 450px;
-	overflow: hidden;
-	perspective: 150px;
+  overflow: hidden;
+  display: flex;
+  // font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
 
 	&-content {
 		transform-style: preserve-3d;
 		transform: rotateX(20deg);
-		animation: linear 10s slide-up infinite;
+		animation: linear 10s slide-up;
 		margin-top: 0%;
+
+		&-wrap {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			text-align: center;
+			font-size: 150%;
+			margin: 150px auto;
+			height: 70vh;
+			width: 100%;
+			overflow: hidden;
+			perspective: 150px;
+		}
 	}
 
 	&-text {
@@ -25,13 +39,13 @@
 	}
 
 	&-job-title {
-		font-size: 150%;
+		// font-size: 150%;
 
 		&::before {
 			display: block;
 			height: 50px;
 			width: 100%;
-			animation: linear 20s text-switch infinite;
+			animation: linear 15s text-switch infinite;
 			content: "Web";
 		}
 
@@ -46,11 +60,11 @@
 
 @keyframes slide-up {
 	from {
-		margin-top: 100%;
+		margin-top: 60%;
 	}
 
 	to {
-		margin-top: -100%;
+		margin-top: 0;
 	}
 }
 
