@@ -14,7 +14,7 @@ const Home = () => {
 				<div class="shooting_star"></div>
 				<div class="shooting_star"></div>
 			</div>
-			<div class="night">
+			<div class="night hidden-xs">
 				<div class="shooting_star"></div>
 				<div class="shooting_star"></div>
 				<div class="shooting_star"></div>
@@ -24,7 +24,7 @@ const Home = () => {
 				<div class="shooting_star"></div>
 				<div class="shooting_star"></div>
 			</div>
-			<div class="night">
+			<div class="night hidden-xs">
 				<div class="shooting_star"></div>
 				<div class="shooting_star"></div>
 				<div class="shooting_star"></div>

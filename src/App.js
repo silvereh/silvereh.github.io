@@ -40,6 +40,7 @@ const App = () => {
 			<div className="App-content">
 				<Home />
 				<About />
+				{/*<Contact />*/}
 			</div>
 		</div>
 	);
