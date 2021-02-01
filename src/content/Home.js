@@ -48,7 +48,7 @@ const Home = () => {
 				<div className="Home-content">
 					<p className="Home-text">Hello, I'm</p>
 					<h1 className="Home-text Home-title">Silvere Heraudeau</h1>
-					<p className="Home-text Home-job-title"><span className="sr-only">Web Engineer</span></p>
+					<p className="Home-text Home-job-title"><span className="sr-only">Web and Software Engineer</span></p>
 				</div>
 			</div>
 		</section>

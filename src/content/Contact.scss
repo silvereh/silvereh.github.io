@@ -1,0 +1,44 @@
+@import '../functions';
+@import '../variables';
+@import '../mixins';
+
+.Contact {
+	&-form {
+		margin: auto;
+		max-width: 650px;
+		padding: 30px;
+	}
+
+	&-field {
+		background-color: $black;
+		border: none;
+		border-bottom: 1px solid $dark;
+		color: $offwhite;
+		font-size: 18px;
+		margin-bottom: 15px;
+		width: 100%;
+	}
+
+	&-send {
+		background-color: transparent;
+		border-color: transparent;
+		cursor: pointer;
+		height: 60px;
+		width: 60px;
+
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+
+		path {
+			fill: $gold;
+		}
+
+		@include hover-focus {
+			path {
+				fill: $teal;
+			}
+		}
+	}
+}
