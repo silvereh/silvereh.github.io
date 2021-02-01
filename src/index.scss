@@ -20,13 +20,21 @@ code {
 
 section {
   min-height: 98vh;
+
+  &:last-of-type {
+    margin-bottom: 75px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 15px;
+    }
+  }
 }
 
 h1, h2, h3 {
   color: $gold;
 }
 
-p {
+p, a {
 	color: $offwhite;
 }
 
