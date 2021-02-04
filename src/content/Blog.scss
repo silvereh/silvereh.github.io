@@ -1,0 +1,11 @@
+@import '../functions';
+@import '../mixins';
+@import '../variables';
+
+@include media-breakpoint-up(md) {
+	.Blog {
+		&-content {
+			max-width: 35%;
+		}
+	}
+}
