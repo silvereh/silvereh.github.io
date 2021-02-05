@@ -42,7 +42,7 @@ export class Blog extends React.Component {
 					<div id="Blog-articles">
 						{
 							this.state.items.map(item => {
-								let matches = item.link.match(patternFR);
+								let matches = item.link.match(patternEN);
 								if (matches) {
 									return (
 										<div className="Blog-article">
