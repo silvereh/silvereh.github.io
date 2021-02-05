@@ -19,7 +19,7 @@ export class Blog extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			items: ''
+			items: []
 		};
 		(async () => {
 			try {
