@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Parser from 'rss-parser';
 
 import './Blog.scss';
 
-const feedUrl = '/blog/feed.xml';
+const feedUrl = '/blog/feed-en.rss';
 const proxy = 'https://silvereh.github.io'
 const dateOptions = {
 	year: 'numeric',
@@ -12,7 +11,6 @@ const dateOptions = {
 	day: 'numeric'
 }
 const excerptLength = 200;
-const patternEN = /\/en\//g;
 
 
 export class Blog extends React.Component {
@@ -42,8 +40,7 @@ export class Blog extends React.Component {
 					<div id="Blog-articles">
 						{
 							this.state.items.map(item => {
-								let matches = item.link.match(patternEN);
-								if (matches && articleCount < 3) {
+								if (articleCount < 3) {
 									articleCount ++;
 									const articleDate = new Date(item.pubDate).toLocaleDateString("en-US", dateOptions);
 									const excerpt = item.contentSnippet.substring(0, excerptLength) + "...";
