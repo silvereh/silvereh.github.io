@@ -44,13 +44,16 @@ export class Blog extends React.Component {
 							this.state.items.map(item => {
 								let matches = item.link.match(patternEN);
 								if (matches) {
+									const linkUrl = item.link.replace('https://silvereh.github.io/blog/blog/', 'https://silvereh.github.io/blog/');
+									const articleDate = new Date(item.pubDate).toLocaleDateString("en-US", dateOptions);
+									const excerpt = item.contentSnippet.substring(0, excerptLength) + "...";
 									return (
 										<div className="Blog-article">
 											<h3 className="Blog-article-title">
-												<a href="{item.link.replace('https://silvereh.github.io/blog/blog/', 'https://silvereh.github.io/blog/')}">{item.title}</a>
+												<a href="{linkUrl}">{item.title}</a>
 											</h3>
-											<small className="Blog-article-date">{new Date(item.pubDate).toLocaleDateString("en-US", dateOptions)}</small>
-											<p className="Blog-article-excerpt">{item.contentSnippet.substring(0, excerptLength) + "..."}</p>
+											<small className="Blog-article-date">{articleDate}</small>
+											<p className="Blog-article-excerpt">{excerpt}</p>
 										</div>
 									);
 								}
