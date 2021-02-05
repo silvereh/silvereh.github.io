@@ -49,7 +49,7 @@ export class Blog extends React.Component {
 									return (
 										<div className="Blog-article">
 											<h3 className="Blog-article-title">
-												<a href="{item.link}">{item.title}</a>
+												<a href={item.link}>{item.title}</a>
 											</h3>
 											<small className="Blog-article-date">{articleDate}</small>
 											<p className="Blog-article-excerpt">{excerpt}</p>
