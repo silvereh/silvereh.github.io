@@ -2,19 +2,17 @@
 @import '../mixins';
 @import '../variables';
 
-@include media-breakpoint-up(md) {
-	.Blog {
-		&-article {
-			&-date {
-				color: $offwhite;
-				font-size: 80%;
-				font-weight: bold;
-			}
+.Blog {
+	&-article {
+		&-date {
+			color: $offwhite;
+			font-size: 80%;
+			font-weight: bold;
+		}
 
-			&-title {
-				a {
-					color: inherit;
-				}
+		&-title {
+			a {
+				color: inherit;
 			}
 		}
 	}
