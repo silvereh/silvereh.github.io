@@ -12,7 +12,7 @@ const dateOptions = {
 	day: 'numeric'
 }
 const excerptLength = 200;
-const patternFR = /\/fr\//g;
+const patternEN = /\/en\//g;
 
 
 export class Blog extends React.Component {
