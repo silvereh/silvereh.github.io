@@ -5,7 +5,15 @@
 @include media-breakpoint-up(md) {
 	.Blog {
 		&-content {
-			max-width: 35%;
+			// max-width: 35%;
+		}
+
+		&-article {
+			&-date {
+				color: $offwhite;
+				font-size: 80%;
+				font-weight: bold;
+			}
 		}
 	}
 }
