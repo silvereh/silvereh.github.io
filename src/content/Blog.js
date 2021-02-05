@@ -43,14 +43,13 @@ export class Blog extends React.Component {
 								if (articleCount < 3) {
 									articleCount ++;
 									const articleDate = new Date(item.pubDate).toLocaleDateString("en-US", dateOptions);
-									const excerpt = item.contentSnippet.substring(0, excerptLength) + "...";
 									return (
 										<div className="Blog-article">
 											<h3 className="Blog-article-title">
 												<a href={item.link}>{item.title}</a>
 											</h3>
 											<small className="Blog-article-date">{articleDate}</small>
-											<p className="Blog-article-excerpt">{excerpt}</p>
+											<p className="Blog-article-excerpt">{item.contentSnippet}</p>
 										</div>
 									);
 								}
