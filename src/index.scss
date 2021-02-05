@@ -47,3 +47,21 @@ p, a {
 .sr-only {
 	@include sr-only;
 }
+
+.btn {
+  background-color: $gold;
+  border: 1px solid darken($gold, 10%);
+  border-radius: 6px;
+  color: $black;
+  display: inline-block;
+  font-size: 120%;
+  font-variant: small-caps;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  @include hover-focus {
+    background-color: lighten($gold, 10%);
+  }
+}

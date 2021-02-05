@@ -34,16 +34,17 @@ export class Blog extends React.Component {
 	}
 
 	render() {
+		let articleCount = 0;
 		return (
 			<section className="Blog" id="blog">
 				<div className="Blog-content">
-					<h2>Articles</h2>
-					<p>Here are some blog articles I have written and published:</p>
+					<h2>Last Published Articles</h2>
 					<div id="Blog-articles">
 						{
 							this.state.items.map(item => {
 								let matches = item.link.match(patternEN);
-								if (matches) {
+								if (matches && articleCount < 3) {
+									articleCount ++;
 									const articleDate = new Date(item.pubDate).toLocaleDateString("en-US", dateOptions);
 									const excerpt = item.contentSnippet.substring(0, excerptLength) + "...";
 									return (
@@ -59,6 +60,7 @@ export class Blog extends React.Component {
 							})
 						}
 					</div>
+					<a className="btn" href="https://silvereh.github.io/blog">Read more articles</a>
 				</div>
 			</section>
 		);

@@ -50,7 +50,7 @@ export class Contact extends React.Component {
 					<input className="Contact-field" type="text" name="from_name" id="from_name" value={ this.state.from_name } onChange={ this.changeHandler } placeholder="Your name" />
 					<input className="Contact-field" type="text" name="from_email" id="from_email" value={ this.state.from_email } onChange={ this.changeHandler } placeholder="Your email" />
 					<textarea className="Contact-field" name="message" id="message" value={ this.state.message } onChange={ this.changeHandler } placeholder="Type your message here." cols="30" rows="10" />
-					<button className="Contact-send" onClick={ this.formHandler }><SendIcon /><span className="sr-only">Send Message</span></button>
+					<button className="Contact-send btn" onClick={ this.formHandler }><SendIcon />Send Message</button>
 				</form>
 				<p>Alternatively, you can shoot me an email at <a href="mailto:silvere.heraudeau@gmail.com">silvere.heraudeau@gmail.com</a>.</p>
 			</section>
