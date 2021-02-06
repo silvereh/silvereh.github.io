@@ -65,3 +65,7 @@ p, a {
     background-color: lighten($gold, 10%);
   }
 }
+
+.img-responsive {
+  max-width: 100%;
+}

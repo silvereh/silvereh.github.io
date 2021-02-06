@@ -48,7 +48,7 @@ export class Blog extends React.Component {
 											<h3 className="Blog-article-title">
 												<a href={item.link}>{item.title}</a>
 											</h3>
-											<small className="Blog-article-date">{articleDate}</small>
+											<p className="Blog-article-date">{articleDate}</p>
 											<p className="Blog-article-excerpt">{item.contentSnippet}</p>
 										</div>
 									);
