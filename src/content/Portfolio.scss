@@ -1,0 +1,63 @@
+@import '../functions';
+@import '../mixins';
+@import '../variables';
+
+.Portfolio {
+	&-article {
+		display: grid;
+		grid-template-columns: [start thumb-start content-start] 1fr [content-end thumb-end end];
+		grid-template-rows: auto;
+		grid-template-areas: 
+			"title"
+			"tech"
+			"thumb"
+			"summary";
+		column-gap: 15px;
+		row-gap: 15px;
+		text-decoration: none;
+
+		&-title {
+			grid-area: title;
+			margin: 0;
+		}
+
+		&-tech {
+			grid-area: tech;
+			font-size: 80%;
+			font-weight: bold;
+			font-style: italic;
+			margin: 0;
+			text-align: right;
+		}
+
+		&-thumb {
+			grid-area: thumb;
+			margin: 0;
+		}
+
+		&-summary {
+			grid-area: summary;
+			margin: 0;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.Portfolio {
+		&-article {
+			grid-template-columns: [start thumb-start] 35% [thumb-end content-start] 1fr [content-end end];
+			grid-template-areas: 
+				"thumb title"
+				"thumb tech"
+				"thumb summary";
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.Portfolio {
+		&-article {
+			grid-template-columns: [start thumb-start] 25% [thumb-end content-start] 1fr [content-end end];
+		}
+	}
+}
