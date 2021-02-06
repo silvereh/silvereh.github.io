@@ -67,7 +67,7 @@
       fill: $gold;
     }
 
-    @include hover-focus-active {
+    @include hover-focus {
       svg {
         height: 80%;
         padding: 10%;
@@ -76,6 +76,12 @@
 
       path {
         fill: $teal;
+      }
+    }
+
+    &.active {
+      path {
+        fill: $purple;
       }
     }
   }
