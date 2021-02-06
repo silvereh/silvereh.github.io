@@ -39,6 +39,7 @@ export class Portfolio extends React.Component {
 					<div id="Portfolio-articles">
 						{
 							this.state.items.map(item => {
+								console.log(item);
 								return (
 									<a className="Portfolio-article" href={item.link}>
 										<h3 className="Portfolio-article-title">{item.title}</h3>
