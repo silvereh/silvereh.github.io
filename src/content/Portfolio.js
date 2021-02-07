@@ -39,13 +39,14 @@ export class Portfolio extends React.Component {
 					<div id="Portfolio-articles">
 						{
 							this.state.items.map(item => {
+								let desc = item.contentSnippet.split('|')
 								console.log(item);
 								return (
 									<a className="Portfolio-article" href={item.link}>
 										<h3 className="Portfolio-article-title">{item.title}</h3>
-										<p className="Portfolio-article-tech">{item.categories}</p>
-										<img className="Portfolio-article-thumb img-responsive" src={item.thumbnail} />
-										<p className="Portfolio-article-summary">{item.contentSnippet}</p>
+										<p className="Portfolio-article-tech">{desc[1]}</p>
+										<img className="Portfolio-article-thumb img-responsive" src={desc[0]} />
+										<p className="Portfolio-article-summary">{desc[2]}</p>
 									</a>
 								);
 							})
